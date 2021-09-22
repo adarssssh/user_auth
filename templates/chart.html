@@ -1,0 +1,24 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+<form name='search' method='POST' action='#' onsubmit='return validate()'>
+    {% csrf_token %}
+
+    <input id='search' type='text' name='token_chart' placeholder='Enter company token'>
+    <button type='submit'>Search</button>    
+</form>
+
+<ul>
+    <li>Current Price: {{ current }}</li>
+</ul>
+<ul>
+    <li>All time High: {{ highest }}</li>
+    <li>All time Low: {{ lowest }}</li>
+</ul>
+
+{% autoescape off %}
+{{ plt }}
+{% endautoescape %} 
+
+{% endblock %
